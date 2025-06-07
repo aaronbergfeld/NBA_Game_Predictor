@@ -101,7 +101,11 @@ class UpcomingGamesDataset(Dataset):
             zero_rows = pd.DataFrame(0, index=np.arange(self.num_players-home_team_players.shape[0]), columns=home_team_players.columns)
             home_team_players = pd.concat([home_team_players, zero_rows])
         if away_team_players.shape[0] < self.num_players:
-            zero_rows = pd.DataFrame(0, index=np.arange(self.num_players-away_team_players.shape[0]), columns=home_team_players.columns)
+            zero_rows = pd.DataFrame(
+                0,
+                index=np.arange(self.num_players - away_team_players.shape[0]),
+                columns=away_team_players.columns,
+            )
             away_team_players = pd.concat([away_team_players, zero_rows])
         print(idx, home_team_players.shape, away_team_players.shape)
         home_team_players = home_team_players.iloc[:self.num_players]
