@@ -57,8 +57,7 @@ def run_simulation(bankroll, betting_rules, model, season):
         bankroll (int): Initial bankroll
         betting_rules (list): List of betting rules to test
         model (torch.nn.Module): Model to use for predictions
-        start_season (int, optional): First season to bet on. Defaults to 22020.
-        end_season (int, optional): Last season to bet on. Defaults to 22023.
+        season (str): Season to simulate (e.g. "2022-2023").
 
     Returns:
         bankroll_history (np.array): Bankroll history
@@ -68,6 +67,7 @@ def run_simulation(bankroll, betting_rules, model, season):
         model_predictions (np.array): Model predictions
         bookmaker_predictions (np.array): Bookmaker predictions
         labels (np.array): Labels
+        bets_placed (int): Number of bets placed
     """
     
     player_data = pd.read_csv('../data/rolling_averages.csv')
