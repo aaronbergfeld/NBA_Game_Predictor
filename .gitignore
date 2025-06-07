@@ -2,3 +2,6 @@
 token.json
 credentials.json
 client_secrets.json
+# Python environment
+.venv/
+__pycache__/
