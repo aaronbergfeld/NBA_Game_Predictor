@@ -85,7 +85,7 @@ class UpcomingGamesDataset(Dataset):
         away_team_players = away_team_players.sort_values(by='GAME_DATE', ascending=False)
         home_team_players = home_team_players.groupby('PLAYER_ID').first().reset_index()
         away_team_players = away_team_players.groupby('PLAYER_ID').first().reset_index()
-        # Remove players whos status is 'Out'
+        # Remove players whose status is 'Out'
         if self.injury_report is not None:
             players_out = self.injury_report[self.injury_report['STATUS'] == 'Out']
             home_team_players = home_team_players[~home_team_players['PLAYER_ID'].isin(players_out['PLAYER_ID'])]
