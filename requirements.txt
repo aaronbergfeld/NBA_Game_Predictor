@@ -5,3 +5,6 @@ selenium
 tqdm
 scikit-learn
 nba_api
+matplotlib
+scipy
+requests
